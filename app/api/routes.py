@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify, render_template
 from helpers import token_required
 from models import db, User, Vehicle, vehicle_schema, vehicles_schema
 from forms import VehiclesForm, ColorTrimForm, ProfileButton, EditProfile
-from flask import Blueprint, render_template, request, redirect, url_for, flash, session
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_required, current_user
 
 api = Blueprint('api',__name__, url_prefix='/api')
@@ -13,20 +13,19 @@ def profile():
     form = ProfileButton()
     try:
         if request.method == 'POST' and form.validate_on_submit():
-            flash(f'{session["user_id"]}')
         
-            return redirect(url_for('api.editprofile', id = session["user_id"]))
+            return redirect(url_for('api.editprofile', id = current_user.id))
     except:
         raise Exception('Invalid form data: Please check your form')
     return render_template('profile.html', form=form)
 
-@api.route('/profile/<id>', methods = ['GET', 'PUT'])
+@api.route('/profile/<id>', methods = ['GET', 'POST'])
 @login_required
 def editprofile(id):
     form = EditProfile()
     user = User.query.get(id) 
     try:
-        if request.method == 'PUT' and form.validate_on_submit():
+        if request.method == 'POST' and form.validate_on_submit():
 
             user.first_name = form.first_name.data
             user.last_name = form.last_name.data
@@ -44,22 +43,26 @@ def editprofile(id):
 @api.route('/vehicles', methods = ['GET', 'POST'])
 def selectvehicle():
     form = VehiclesForm()
-
     try:
         if request.method == 'POST' and form.validate_on_submit():
+            print(form.data)
             make = 'Tesla'
-            model = form.model.data
+            if form.submitModel3.data:
+                model = 'model3'
+            elif form.submitModelS.data:
+                model = 'models'
+            elif form.submitModelX.data:
+                model = 'modelx'
+            elif form.submitModelY.data:
+                model = 'modely'
             year = '2023'
             color = ''
             trim = ''
-            print(model)
 
             vehicle = Vehicle(make, model, year, color, trim)
 
             db.session.add(vehicle)
             db.session.commit()
-
-            flash(f'You have successfully created a vehicle model {model}', 'User-created')
 
             return redirect(url_for('api.selectcolortrim', id = vehicle.id))
     except:

@@ -21,8 +21,8 @@
 <title>Tesla</title>
 <link rel="icon" type="images/x-icon" href = "../../static/images/Tesla_logo.png">
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
+<body class="p-0">
+    <nav class="navbar navbar-expand-lg navbar-light py-3 my-0">
         <div class="container">
             <a href="{{ url_for('site.home') }}" class="navbar-brand">
                 <img class = "img-fluid" src = "../../static/images/tesla-9-logo.png"  alt="Tesla Logo" id = "logo">
@@ -61,43 +61,21 @@
         </div>
     </nav>
 
-{% block content %}
-{% endblock %}
+    <main class = "">
+    {% block content %}
+    {% endblock %}
+    </main>
 
-<!--Footer-->
-<footer id="contact">
-    <div class="container-fluid bg-dark text-light d-flex row justify-content-center">
-        <div class="footer row container p-3">
+    <!--Footer-->
+    <footer class = "footer container-fluid d-flex bg-black text-light justify-content-center align-bottom align-content-center p-0">
 
-            <div class="container-fluid text-center col-md-4">
-                <header class="display-6 text-decoration-underline">Contact</header>
-                <div class="pt-2 pb-3">
-                    <a class="text-decoration-none text-light d-flex" href="https://maps.app.goo.gl/iaCVxEeeDA7mBHE66">
-                        <div class="container-fluid p-0">
-                            <p class="m-0"> <span class="bi-geo-alt"></span>10033 Metropolitan Ave</p>
-                            <p class="m-0">Queens, NY 11375</p>
-                        </div>
-                    </a>
-                </div>
-                <p class="text-break">
-                    <span class="bi-envelope"></span>
-                    unabjj@gmail.com
-                </p>
-                <p>
-                    <span class="bi-telephone"></span>
-                    (718) 268-0044
-                </p>
+            <div class="container w-75 text-center row align-content-center">
+                <div class = "col-sm py-sm-1"><a href="https://twitter.com/Tesla" class="text-decoration-none text-light"><span class="bi-twitter"></span> TWITTER</a></div>
+                <div class = "col-sm py-sm-1"><a class="text-decoration-none text-light" href="https://www.tesla.com/contact">CONTACT</a></div>
+                <div class = "col-sm py-sm-1"><a class="text-decoration-none text-light" href="https://www.tesla.com/findus/list">LOCATIONS</a></div>
+                <div class = "col-sm py-sm-1"><a class="text-decoration-none text-light" href="https://www.instagram.com/teslamotors/"><span class="bi-instagram"></span> INSTAGRAM</a></div>
             </div>
-
-            <div class="container-fluid text-center col-md-4">
-                <header class="display-6 text-decoration-underline">Social</header>
-                <p class="pt-2"><a href="https://www.facebook.com/UnaBjj/" class="text-decoration-none text-light"><span class="bi-facebook"></span> FACEBOOK</a></p>
-                <p><a class="text-decoration-none text-light" href="https://www.instagram.com/unabjj/"><span class="bi-instagram"></span> INSTAGRAM</a></p>
-            </div>
-
-        </div>
-    </div>
-</footer>
+    </footer>
 
 </body>
 </html>

@@ -1,13 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <!-- Form content -->
-    <main class="container p-5">
-        <div class="row">
-            <aside class="col-12 col-md-6">
-                <h2>Select a Vehicle</h2>
-                {% include 'vehiclesform.html' %}
-            </aside>
+<main class="container-fluid px-0 mb-1">
+    <div id = "model3">
+        <img class="img-fluid" src="../../static/images/Model3.jpg">
+        <div class="d-flex justify-content-center mt-1 mb-5">
+            {% include 'model3form.html' %}
         </div>
-    </main>
+    </div>
+    <div id = "models">
+        <img class="img-fluid" src="../../static/images/ModelS.jpg">
+        <div class="d-flex justify-content-center mt-1 mb-5">
+            {% include 'modelsform.html' %}
+        </div>
+    </div>
+    <div id = "modelx">
+        <img class="img-fluid" src="../../static/images/Modelx.jpg">
+        <div class="d-flex justify-content-center mt-1 mb-5">
+            {% include 'modelxform.html' %}
+        </div>
+    </div>
+    <div id = "modely">
+        <img class="img-fluid" src="../../static/images/ModelY.jpg">
+        <div class="d-flex justify-content-center mt-1 mb-5">
+            {% include 'modelyform.html' %}
+        </div>
+    </div>
+</main>
 {% endblock %}

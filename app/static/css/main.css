@@ -123,21 +123,6 @@ hr {
   max-width: 1500px;
 }
 
-.footer{
-  max-width: 1500px;
-}
-
-.footer2{
-  max-width: 1500px;
-  max-height: 600px;
-}
-
-.schedule{
-  max-width: 1500px;
-  margin-top: 100px;
-}
-
-.signbox {
-  max-width: 600px;
-  margin-top: 150px;
+#footer{
+  /* height: 40px; */
 }

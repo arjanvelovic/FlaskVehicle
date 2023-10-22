@@ -23,7 +23,7 @@
                 <li class="list-group-item">Phone Number: {{ current_user.phone_number }} </li>
                 <li class="list-group-item">Address: {{ current_user.address }} </li>
                 <li class="list-group-item">
-                    <form method="POST">{{ form.submit_button(class = "btn btn-primary btn-block mt-2")}}</form>
+                    {% include 'profileform.html' %}
                 </li>
             </ul>
         </div>

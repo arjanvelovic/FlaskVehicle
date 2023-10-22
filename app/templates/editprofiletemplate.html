@@ -1,7 +1,4 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<form method="PUT">
+<form method="POST">
     {{ form.hidden_tag() }}
     <div class="form-group">
         <fieldset id="first_name-field">
@@ -19,16 +16,14 @@
     <div class="form-group">
         <fieldset id="phone_number-field">
             {{ form.phone_number.label }}
-            {{ form.phone_number(class = 'form-control', placeholder = 'Last Name') }}
+            {{ form.phone_number(class = 'form-control', placeholder = 'Phone Number') }}
         </fieldset>
     </div>
     <div class="form-group">
         <fieldset id="address-field">
             {{ form.address.label }}
-            {{ form.address(class = 'form-control', placeholder = 'Last Name') }}
+            {{ form.address(class = 'form-control', placeholder = 'Address') }}
         </fieldset>
     </div>
         {{ form.submit_button(class = "btn btn-primary btn-block mt-2")}}
 </form>
-{% endblock %}
-

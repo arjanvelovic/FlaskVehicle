@@ -30,9 +30,10 @@ class EditProfile(FlaskForm):
     submit_button = SubmitField()
 
 class VehiclesForm(FlaskForm):
-    # email, password, submit
-    model = RadioField('Model', choices=[('modelx', 'Model X'),('modely', 'Model Y'), ('models', 'Model S')])
-    submit_button = SubmitField()
+    submitModel3 = SubmitField(label="Build Your Model 3 Here", name= "Model3", id="Model3")
+    submitModelS = SubmitField(label="Build Your Model S Here", name= "ModelS", id="ModelS")
+    submitModelX = SubmitField(label="Build Your Model X Here", name= "ModelX", id="ModelX")
+    submitModelY = SubmitField(label="Build Your Model Y Here", name= "ModelY", id="ModelY")
 
 class ColorTrimForm(FlaskForm):
     # email, password, submit
