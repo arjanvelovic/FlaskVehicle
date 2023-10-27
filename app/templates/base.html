@@ -16,13 +16,13 @@
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
 
 <!-- Uncomment to show borders -->
-<style>*{border: 1px solid red;}</style>
+<!-- <style>*{border: 1px solid red;}</style> -->
 
 <title>Tesla</title>
 <link rel="icon" type="images/x-icon" href = "../../static/images/Tesla_logo.png">
 </head>
 <body class="p-0">
-    <nav class="navbar navbar-expand-lg navbar-light py-3 my-0">
+    <nav class="navbar navbar-expand-lg navbar-light py-3 my-0 border-bottom">
         <div class="container">
             <a href="{{ url_for('site.home') }}" class="navbar-brand">
                 <img class = "img-fluid" src = "../../static/images/tesla-9-logo.png"  alt="Tesla Logo" id = "logo">
@@ -67,13 +67,13 @@
     </main>
 
     <!--Footer-->
-    <footer class = "footer container-fluid d-flex bg-black text-light justify-content-center align-bottom align-content-center p-0">
+    <footer class = "footer d-flex bg-black text-light justify-content-center align-content-center p-0">
 
-            <div class="container w-75 text-center row align-content-center">
-                <div class = "col-sm py-sm-1"><a href="https://twitter.com/Tesla" class="text-decoration-none text-light"><span class="bi-twitter"></span> TWITTER</a></div>
-                <div class = "col-sm py-sm-1"><a class="text-decoration-none text-light" href="https://www.tesla.com/contact">CONTACT</a></div>
-                <div class = "col-sm py-sm-1"><a class="text-decoration-none text-light" href="https://www.tesla.com/findus/list">LOCATIONS</a></div>
-                <div class = "col-sm py-sm-1"><a class="text-decoration-none text-light" href="https://www.instagram.com/teslamotors/"><span class="bi-instagram"></span> INSTAGRAM</a></div>
+            <div class="container w-75 text-center align-content-center row justify-content-center">
+                <div class = "col-12 col-md-2 py-sm-1 small"><a href="https://twitter.com/Tesla" class="text-decoration-none text-light"><span class="bi-twitter"></span> TWITTER</a></div>
+                <div class = "col-12 col-md-2 py-sm-1 small"><a class="text-decoration-none text-light" href="https://www.tesla.com/contact">CONTACT</a></div>
+                <div class = "col-12 col-md-2 py-sm-1 small"><a class="text-decoration-none text-light" href="https://www.tesla.com/findus/list">LOCATIONS</a></div>
+                <div class = "col-12 col-md-2 py-sm-1 small"><a class="text-decoration-none text-light" href="https://www.instagram.com/teslamotors/"><span class="bi-instagram"></span> INSTAGRAM</a></div>
             </div>
     </footer>
 

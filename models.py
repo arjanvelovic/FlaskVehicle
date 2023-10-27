@@ -4,8 +4,7 @@ from flask_migrate import Migrate
 import uuid 
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin
-from flask_login import LoginManager
+from flask_login import UserMixin, LoginManager
 from flask_marshmallow import Marshmallow 
 import secrets
 
@@ -61,14 +60,16 @@ class Vehicle(db.Model):
     year = db.Column(db.String(150), nullable = True, default = '2023')
     color = db.Column(db.String(150), nullable = True, default = '')
     trim = db.Column(db.String(150), nullable = True, default = '')
+    cost = db.Column(db.Integer, nullable = True, default = '')
 
-    def __init__(self, make, model, year, color, trim, id = ''):
+    def __init__(self, make, model, year, color, trim, cost, id = ''):
         self.id = self.set_id()
         self.make = make
         self.model = model
         self.year = year
         self.color = color
         self.trim = trim
+        self.cost = cost
 
     def __repr__(self):
         return f'The following contact has been added to the phonebook: {self.name}'
@@ -78,39 +79,7 @@ class Vehicle(db.Model):
     
 class VehicleSchema(ma.Schema):
     class Meta:
-        fields = ['id', 'make', 'model', 'year', 'color', 'trim']
+        fields = ['id', 'make', 'model', 'year', 'color', 'trim', 'cost']
 
 vehicle_schema = VehicleSchema()
 vehicles_schema = VehicleSchema(many=True)
-
-##################################################################
-
-# class Contact(db.Model):
-#     id = db.Column(db.String, primary_key = True)
-#     name = db.Column(db.String(150), nullable = False)
-#     email = db.Column(db.String(200))
-#     phone_number = db.Column(db.String(20))
-#     address = db.Column(db.String(200))
-#     user_token = db.Column(db.String, db.ForeignKey('user.token'), nullable = False)
-
-#     def __init__(self,name,email,phone_number,address,user_token, id = ''):
-#         self.id = self.set_id()
-#         self.name = name
-#         self.email = email
-#         self.phone_number = phone_number
-#         self.address = address
-#         self.user_token = user_token
-
-
-#     def __repr__(self):
-#         return f'The following contact has been added to the phonebook: {self.name}'
-
-#     def set_id(self):
-#         return (secrets.token_urlsafe())
-
-# class ContactSchema(ma.Schema):
-#     class Meta:
-#         fields = ['id', 'name','email','phone_number', 'address']
-
-# contact_schema = ContactSchema()
-# contacts_schema = ContactSchema(many=True)

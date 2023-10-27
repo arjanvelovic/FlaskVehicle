@@ -1,9 +1,7 @@
 from forms import UserLoginForm, UserSignupForm
 from models import User, db, check_password_hash
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-
-# imports for flask login 
-from flask_login import login_user, logout_user, LoginManager, current_user, login_required
+from flask_login import login_user, logout_user, current_user, login_required
 
 auth = Blueprint('auth', __name__, template_folder='auth_templates')
 
@@ -49,7 +47,7 @@ def signin():
             if logged_user and check_password_hash(logged_user.password, password):
                 login_user(logged_user)
                 flash('You were successful in your initiation. Congratulations, and welcome to the Jedi Knights', 'auth-sucess')
-                return redirect(url_for('site.profile'))
+                return redirect(url_for('api.profile'))
             else:
                 flash('You have failed in your attempt to access this content', 'auth-failed')
                 return redirect(url_for('auth.signin'))

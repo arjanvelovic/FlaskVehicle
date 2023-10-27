@@ -13,116 +13,33 @@ body {
   max-inline-size: 140px;
 }
 
-.headerimg{
-  margin-top: 90px;
-}
-
-#wrapper{
-  max-width: 1200px;
-}
-
-hr {
-  width: 20% !important;
-  height: 4px !important;
-  color: red;
-}
-
-.square {
-  text-align: justify;
-}
-
-.background1{
-  z-index: -1;
-  margin-top: 80px;
-}
-.background2{
-  z-index: -1;
-  margin-top: 403px;
-}
-.background3{
-  z-index: -1;
-  margin-top: 726px;
-}
-
-.instructors{
-  max-width: 1500px;
-}
-
-.HiddenBlock{
-  display: none;
-  background-color: rgba(0,0,0,0.45);
-  height: 100%;
-  margin:0%;
-  color: white;
-  padding: 20% 5% 20% 5%;
-  text-align: justify;
-  align-items: center;
-}
-
-#Fred{
-  background-image: url(static/Fred.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  height: 60vh;
-}
-#Fred:hover #FredShow{
-  display: none;
-}
-#Fred:hover #FredHide{
-  display: flex;
-}
-
-#Zo{
-  background-image: url(static/Alanzo.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  height: 60vh;
-}
-#Zo:hover #ZoShow{
-  display: none;
-}
-#Zo:hover #ZoHide{
-  display: flex;
-}
-
-#Kevin{
-  background-image: url(static/Kevin.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  height: 60vh;
-}
-#Kevin:hover #KevinShow{
-  display: none;
-}
-#Kevin:hover #KevinHide{
-  display: flex;
-}
-
-#Tom{
-  background-image: url(static/Tom.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  height: 60vh;
-}
-#Tom:hover #TomShow{
-  display: none;
-}
-#Tom:hover #TomHide{
-  display: flex;
-}
-
-#instructorrow{
-  column-gap: 1%;
-}
-
-.galleryimages{
-  max-width: 1500px;
-}
 
 #footer{
   /* height: 40px; */
+}
+
+input[type=radio] {
+  display:none; 
+  margin:10px;
+}
+
+
+input[type=radio] + label {
+  /* display:inline-block; */
+  margin:2px;
+  margin-inline: 2%;
+  padding: 6px 14px;
+  font-size: 16px;
+  line-height: 20px;
+  color: #333;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid #3f3f3f;
+
+}
+
+input[type=radio]:checked + label,input[type=radio]:hover + label  {
+  background-color:#2c2c2c;
+  color: white;
 }

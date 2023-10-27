@@ -1,39 +1,37 @@
 <form method="POST">
     {{ form.hidden_tag() }}
-    <div class="form-group">
+    <div class="form-group py-2">
         <fieldset id="first_name-field">
-            {{ form.first_name.label }}
             {{ form.first_name(class = 'form-control', placeholder = 'First Name') }}
         </fieldset>
     </div>
 
-    <div class="form-group">
+    <div class="form-group py-2">
         <fieldset id="last_name-field">
-            {{ form.last_name.label }}
             {{ form.last_name(class = 'form-control', placeholder = 'Last Name') }}
         </fieldset>
     </div>
-    <div class="form-group">
+    <div class="form-group py-2">
         <fieldset id="phone_number-field">
-            {{ form.phone_number.label }}
-            {{ form.phone_number(class = 'form-control', placeholder = 'Last Name') }}
+            {{ form.phone_number(class = 'form-control', placeholder = 'Phone Number') }}
         </fieldset>
     </div>
-    <div class="form-group">
+    <div class="form-group py-2">
         <fieldset id="address-field">
-            {{ form.address.label }}
-            {{ form.address(class = 'form-control', placeholder = 'Last Name') }}
+            {{ form.address(class = 'form-control', placeholder = 'Address') }}
         </fieldset>
     </div>
-    <div class="form-group">
+    <div class="form-group py-2">
         <fieldset id="email-field">
-            {{ form.email.label }}
             {{ form.email(class = 'form-control', placeholder = 'Email') }}
         </fieldset>
     </div>
+    <div class="form-group py-2">
         <fieldset id="pass-field">
-            {{ form.password.label }}
             {{ form.password(class = "form-control", placeholder = "Password") }}
         </fieldset>
-        {{ form.submit_button(class = "btn btn-primary btn-block mt-2")}}
+    </div>
+    <div class="py-2">
+        {{ form.submit_button(class = "btn btn-light btn-block btn-outline-dark rounded-1")}}
+    </div>
 </form>
