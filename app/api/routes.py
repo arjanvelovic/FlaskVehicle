@@ -74,8 +74,12 @@ def selectvehicle():
             color = ''
             trim = ''
             cost = 0
+            try:
+                user_token  = current_user.token
+            except:
+                user_token = None
 
-            vehicle = Vehicle(make, model, year, color, trim, cost)
+            vehicle = Vehicle(make, model, year, color, trim, cost, user_token)
 
             db.session.add(vehicle)
             db.session.commit()
@@ -112,7 +116,38 @@ def selectcolortrim(id):
         raise Exception('Invalid form data: Please check your form')
     return render_template(f'{vehicle.model}.html', form=form)
 
-@api.route('/vehicles/<id>', methods = ['GET'])
+############################################################################
+
+@api.route('/vehiclesapi', methods = ['POST'])
+@token_required
+def create_vehicle(current_user_token):
+    make = request.json['make']
+    model = request.json['model']
+    year = request.json['year']
+    color = request.json['color']
+    trim = request.json['trim']
+    cost = request.json['cost']
+    user_token = current_user_token.token
+
+    print(f'BIG TESTER: {current_user_token.token}')
+
+    vehicle = Vehicle(make, model, year, color, trim, cost, user_token = user_token )
+
+    db.session.add(vehicle)
+    db.session.commit()
+
+    response = vehicle_schema.dump(vehicle)
+    return jsonify(response)
+
+@api.route('/vehiclesapi', methods = ['GET'])
+@token_required
+def get_vehicle(current_user_token):
+    a_user = current_user_token.token
+    vehicle = Vehicle.query.filter_by(user_token = a_user).all()
+    response = vehicles_schema.dump(vehicle)
+    return jsonify(response)
+
+@api.route('/vehiclesapi/<id>', methods = ['GET'])
 @token_required
 def get_vehicle_two(current_user_token, id):
     fan = current_user_token.token
@@ -124,7 +159,7 @@ def get_vehicle_two(current_user_token, id):
         return jsonify({"message": "Valid Token Required"}),401
 
 # UPDATE endpoint
-@api.route('/vehicles/<id>', methods = ['POST','PUT'])
+@api.route('/vehiclesapi/<id>', methods = ['POST','PUT'])
 @token_required
 def update_vehicle(current_user_token,id):
     vehicle = Vehicle.query.get(id) 
@@ -133,6 +168,7 @@ def update_vehicle(current_user_token,id):
     vehicle.year = request.json['year']
     vehicle.color = request.json['color']
     vehicle.trim = request.json['trim']
+    vehicle.cost = request.json['cost']
     vehicle.user_token = current_user_token.token
 
     db.session.commit()
@@ -140,7 +176,7 @@ def update_vehicle(current_user_token,id):
     return jsonify(response)
 
 # DELETE car ENDPOINT
-@api.route('/vehicles/<id>', methods = ['DELETE'])
+@api.route('/vehiclesapi/<id>', methods = ['DELETE'])
 @token_required
 def delete_vehicle(current_user_token, id):
     vehicle = Vehicle.query.get(id)

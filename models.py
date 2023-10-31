@@ -61,8 +61,9 @@ class Vehicle(db.Model):
     color = db.Column(db.String(150), nullable = True, default = '')
     trim = db.Column(db.String(150), nullable = True, default = '')
     cost = db.Column(db.Integer, nullable = True, default = '')
+    user_token = db.Column(db.String, db.ForeignKey('user.token'), nullable = True)
 
-    def __init__(self, make, model, year, color, trim, cost, id = ''):
+    def __init__(self, make, model, year, color, trim, cost, user_token, id = ''):
         self.id = self.set_id()
         self.make = make
         self.model = model
@@ -70,9 +71,10 @@ class Vehicle(db.Model):
         self.color = color
         self.trim = trim
         self.cost = cost
+        self.user_token = user_token
 
     def __repr__(self):
-        return f'The following contact has been added to the phonebook: {self.name}'
+        return f'The following vehicle has been added: {self.make}, {self.model}, {self.color}, {self.trim}'
 
     def set_id(self):
         return (secrets.token_urlsafe())
